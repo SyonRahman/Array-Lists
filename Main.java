@@ -49,5 +49,22 @@ public class Main {
         System.out.println(booleans);
         System.out.println(subjects);
         System.out.println(stores);
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+
+        ArrayList<String> testmethods = new ArrayList<String>();
+        testmethods.add("Add");
+        testmethods.add("Size");
+        testmethods.add("Set");
+        testmethods.add("Get");
+        testmethods.add("Remove");
+        testmethods.add("Modify");
+        testmethods.add("Traverse");
+        System.out.println(testmethods.size());
+        System.out.println(testmethods.add("Added Element"));
+        testmethods.add(3, "Added Element At Index");
+        System.out.println(testmethods.get(4));
+        System.out.println(testmethods.set(2, "Element Set"));
+        System.out.println(testmethods.remove(5));
+        System.out.println(testmethods);
     }
 }
