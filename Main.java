@@ -1,5 +1,15 @@
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+
 public class Main {
+    public static void removeintegers(ArrayList<Integer> intarray, int remove) {
+        for (int i = 0; i < intarray.size(); i++) {
+            if (intarray.get(i) == remove) {
+                intarray.remove(i);
+                i--;
+            }
+        }
+    }
     public static void main(String[] args) {
         ArrayList OneOfEverything = new ArrayList();
         OneOfEverything.add(10);
@@ -9,10 +19,12 @@ public class Main {
         OneOfEverything.add(new Stores("10th Avenue Shop"));
 
         ArrayList<Integer> integers = new ArrayList<Integer>();
+        integers.add(3);
         integers.add(1);
         integers.add(2);
         integers.add(3);
         integers.add(5);
+        integers.add(3);
         integers.add(8);
 
         ArrayList<Double> doubles = new ArrayList<Double>();
@@ -49,7 +61,7 @@ public class Main {
         System.out.println(booleans);
         System.out.println(subjects);
         System.out.println(stores);
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n");
 
         ArrayList<String> testmethods = new ArrayList<String>();
         testmethods.add("Add");
@@ -66,5 +78,40 @@ public class Main {
         System.out.println(testmethods.set(2, "Element Set"));
         System.out.println(testmethods.remove(5));
         System.out.println(testmethods);
+        System.out.println("\n\n\n\n\n\n\n\n");
+
+
+        for (int i = 0; i < integers.size(); i++) {
+            System.out.println(integers.get(i));
+        }
+        System.out.println();
+        for (int i : integers) {
+            System.out.println(i);
+        }
+        System.out.println();
+        int i = 0;
+        while (i < integers.size()) {
+            System.out.println(integers.get(i));
+            i++;
+        }
+        try {
+            for (int f = 0; f < integers.size() + 1; f++) {
+                if (integers.get(f) == 3) {
+                    integers.remove(f);
+                }
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index Invalid");
+        }
+        try {
+            for (double d : doubles) {
+                doubles.add(5.0);
+            }
+        } catch (ConcurrentModificationException e) {
+            System.out.println("Invalid Function");
+        }
+        System.out.println();
+        removeintegers(integers, 3);
+        System.out.println(integers);
     }
 }
